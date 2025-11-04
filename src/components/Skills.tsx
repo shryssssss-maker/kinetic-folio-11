@@ -97,7 +97,7 @@ const Skills = () => {
               transform: `rotateY(${angle}deg) translateZ(${radius}px)`,
               transformStyle: "preserve-3d"
             }}>
-                  <div className="w-full h-full bg-card border border-border p-6 backdrop-blur-sm flex flex-col justify-center items-center transition-all hover:bg-card/80 hover:border-primary/50 mx-[100px] my-[100px] px-0 py-[24px] rounded-sm">
+                  <div className="w-full h-full bg-card border border-border p-6 backdrop-blur-sm flex flex-col justify-center items-center transition-all hover:bg-card/80 hover:border-primary/50 mx-[100px] my-[100px] px-0 py-[24px] rounded-lg">
                     <h3 className="text-xl font-display mb-2">{skill.name}</h3>
                     <p className="text-sm text-muted-foreground uppercase tracking-wider">
                       {skill.level}
