@@ -66,9 +66,7 @@ const Contact = () => {
             <button onClick={scrollToTop} className="text-sm uppercase tracking-wider text-muted-foreground hover:text-foreground transition-colors mb-8">
               Back to Top
             </button>
-            <p className="text-sm text-muted-foreground">
-              © 2024 All rights reserved
-            </p>
+            <p className="text-sm text-muted-foreground">© 2025 All rights reserved</p>
           </div>
         </div>
       </div>
