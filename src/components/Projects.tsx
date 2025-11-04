@@ -1,40 +1,30 @@
 import { useEffect, useRef, useState } from "react";
-import { ExternalLink, Github } from "lucide-react";
+import { X } from "lucide-react";
 import { Card } from "@/components/ui/card";
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 
 const projects = [
   {
     id: 1,
-    title: "E-Commerce Platform",
-    description: "A full-stack online shopping platform with cart functionality and payment integration",
-    tech: ["React", "Node.js", "MongoDB"],
+    title: "SIH Project – AI Dropout Predictor & Preventor",
+    description: "An AI-powered system designed to predict and prevent student dropouts using machine learning algorithms and data analysis.",
+    fullDescription: "This project was developed for the Smart India Hackathon (SIH). It uses machine learning models to analyze various student data points including attendance, academic performance, socio-economic factors, and behavioral patterns to predict dropout risk. The system provides early warnings to educators and suggests personalized intervention strategies to help at-risk students stay in school.",
+    tech: ["Python", "Machine Learning", "TensorFlow", "React"],
     image: "/placeholder.svg",
   },
   {
     id: 2,
-    title: "Task Management App",
-    description: "Collaborative task tracker with real-time updates and team features",
-    tech: ["TypeScript", "React", "Firebase"],
-    image: "/placeholder.svg",
-  },
-  {
-    id: 3,
-    title: "Weather Dashboard",
-    description: "Interactive weather forecasting application with location-based data",
-    tech: ["React", "Weather API", "CSS"],
-    image: "/placeholder.svg",
-  },
-  {
-    id: 4,
-    title: "Portfolio Website",
-    description: "Personal portfolio showcasing projects and skills with modern design",
-    tech: ["React", "Tailwind", "Framer Motion"],
+    title: "Hela – DApp Deployment",
+    description: "A decentralized application deployment platform built on blockchain technology for seamless smart contract integration.",
+    fullDescription: "Hela is a comprehensive DApp deployment platform that simplifies the process of launching decentralized applications. It provides developers with tools for smart contract deployment, blockchain integration, and distributed storage solutions. The platform supports multiple blockchain networks and offers intuitive interfaces for managing decentralized infrastructure.",
+    tech: ["Blockchain", "Smart Contracts", "Web3.js", "React"],
     image: "/placeholder.svg",
   },
 ];
 
 const Projects = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const [selectedProject, setSelectedProject] = useState<typeof projects[0] | null>(null);
   const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
@@ -83,7 +73,8 @@ const Projects = () => {
           {projects.map((project, index) => (
             <Card
               key={project.id}
-              className={`group relative overflow-hidden bg-card border-border hover:border-primary/50 transition-all duration-500 ${
+              onClick={() => setSelectedProject(project)}
+              className={`group relative overflow-hidden bg-card border-border hover:border-primary/50 transition-all duration-500 cursor-pointer ${
                 isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
               }`}
               style={{ transitionDelay: `${400 + index * 150}ms` }}
@@ -100,19 +91,9 @@ const Projects = () => {
 
               {/* Content */}
               <div className="p-6 space-y-4">
-                <div className="flex items-start justify-between">
-                  <h3 className="text-2xl font-display group-hover:text-primary transition-colors">
-                    {project.title}
-                  </h3>
-                  <div className="flex gap-2">
-                    <button className="p-2 hover:bg-secondary rounded-lg transition-colors">
-                      <Github className="w-4 h-4" />
-                    </button>
-                    <button className="p-2 hover:bg-secondary rounded-lg transition-colors">
-                      <ExternalLink className="w-4 h-4" />
-                    </button>
-                  </div>
-                </div>
+                <h3 className="text-2xl font-display group-hover:text-primary transition-colors">
+                  {project.title}
+                </h3>
                 
                 <p className="text-foreground/70 leading-relaxed">
                   {project.description}
@@ -132,6 +113,42 @@ const Projects = () => {
             </Card>
           ))}
         </div>
+
+        {/* Project Details Dialog */}
+        <Dialog open={!!selectedProject} onOpenChange={() => setSelectedProject(null)}>
+          <DialogContent className="max-w-2xl">
+            <DialogHeader>
+              <DialogTitle className="text-3xl font-display mb-4">
+                {selectedProject?.title}
+              </DialogTitle>
+            </DialogHeader>
+            <div className="space-y-6">
+              <div className="aspect-video bg-muted relative overflow-hidden rounded-lg">
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-accent/20" />
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <span className="text-8xl font-display text-foreground/10">
+                    {selectedProject?.id}
+                  </span>
+                </div>
+              </div>
+              
+              <p className="text-foreground/80 leading-relaxed text-lg">
+                {selectedProject?.fullDescription}
+              </p>
+
+              <div className="flex flex-wrap gap-2">
+                {selectedProject?.tech.map((tech) => (
+                  <span
+                    key={tech}
+                    className="text-sm px-4 py-2 bg-secondary rounded-full text-muted-foreground uppercase tracking-wider"
+                  >
+                    {tech}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </DialogContent>
+        </Dialog>
       </div>
     </section>
   );

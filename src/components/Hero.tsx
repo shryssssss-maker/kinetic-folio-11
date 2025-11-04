@@ -3,19 +3,16 @@ import { Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
 interface HeroProps {
   onMenuClick: () => void;
+  onThemeToggle: () => void;
 }
 const Hero = ({
-  onMenuClick
+  onMenuClick,
+  onThemeToggle
 }: HeroProps) => {
   const [isVisible, setIsVisible] = useState(false);
   useEffect(() => {
     setIsVisible(true);
   }, []);
-  const scrollToProjects = () => {
-    document.getElementById("projects")?.scrollIntoView({
-      behavior: "smooth"
-    });
-  };
   return <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background gradient effect */}
       <div className="absolute inset-0 bg-gradient-to-b from-background via-background to-card/50" />
@@ -26,7 +23,7 @@ const Hero = ({
           Portfolio
         </div>
         <div className="flex items-center gap-8">
-          <button onClick={scrollToProjects} className={`text-sm tracking-wider uppercase hover:text-primary transition-colors ${isVisible ? "opacity-100" : "opacity-0"}`} style={{
+          <button onClick={onThemeToggle} className={`text-sm tracking-wider uppercase hover:text-primary transition-colors ${isVisible ? "opacity-100" : "opacity-0"}`} style={{
           transitionDelay: "200ms"
         }}>
             Try Me

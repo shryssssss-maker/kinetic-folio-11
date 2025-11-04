@@ -47,10 +47,10 @@ const Contact = () => {
             </a>
 
             <div className="flex items-center gap-6 pt-4">
-              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="p-3 rounded-full border border-border hover:border-primary hover:bg-secondary transition-all">
+              <a href="https://www.linkedin.com/in/shreyas-singh-bbbb20384/" target="_blank" rel="noopener noreferrer" className="p-3 rounded-full border border-border hover:border-primary hover:bg-secondary transition-all">
                 <Linkedin className="w-5 h-5" />
               </a>
-              <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="p-3 rounded-full border border-border hover:border-primary hover:bg-secondary transition-all">
+              <a href="https://github.com/shryssssss-maker" target="_blank" rel="noopener noreferrer" className="p-3 rounded-full border border-border hover:border-primary hover:bg-secondary transition-all">
                 <Github className="w-5 h-5" />
               </a>
               <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="p-3 rounded-full border border-border hover:border-primary hover:bg-secondary transition-all">

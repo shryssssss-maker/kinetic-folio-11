@@ -2,18 +2,24 @@ import { useEffect, useRef, useState } from "react";
 
 const skills = [
   { name: "React", level: "Intermediate" },
-  { name: "TypeScript", level: "Learning" },
-  { name: "JavaScript", level: "Intermediate" },
+  { name: "Arduino", level: "Learning" },
+  { name: "MySQL", level: "Intermediate" },
   { name: "Python", level: "Beginner" },
-  { name: "HTML/CSS", level: "Advanced" },
-  { name: "Node.js", level: "Learning" },
-  { name: "Git", level: "Intermediate" },
+  { name: "HTML/CSS", level: "Beginner" },
+  { name: "Raspberry pi", level: "Learning" },
+  { name: "Git", level: "Beginner" },
   { name: "UI/UX Design", level: "Intermediate" },
+  { name: "Figma", level: "Beginner" },
+  { name: "Lovable", level: "Intermediate" },
+  { name: "Cursor", level: "Intermediate" },
+  { name: "Supabase", level: "Beginner" },
+  { name: "Tinkercad", level: "Beginner" },
 ];
 
 const Skills = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [rotation, setRotation] = useState(0);
+  const [hasCompletedRotation, setHasCompletedRotation] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
   const scrollRef = useRef(0);
 
@@ -33,7 +39,7 @@ const Skills = () => {
       observer.observe(sectionRef.current);
     }
 
-    const handleScroll = () => {
+    const handleScroll = (e: Event) => {
       if (!sectionRef.current) return;
       
       const rect = sectionRef.current.getBoundingClientRect();
@@ -41,20 +47,35 @@ const Skills = () => {
       const sectionHeight = rect.height;
       const windowHeight = window.innerHeight;
       
-      // Calculate rotation based on scroll position within section
-      if (sectionTop < windowHeight && sectionTop > -sectionHeight) {
+      // Check if we're in the skills section
+      const inSection = sectionTop < windowHeight && sectionTop > -sectionHeight;
+      
+      if (inSection) {
         const scrollProgress = (windowHeight - sectionTop) / (windowHeight + sectionHeight);
-        scrollRef.current = scrollProgress * 360;
-        setRotation(scrollRef.current);
+        const newRotation = scrollProgress * 360;
+        scrollRef.current = newRotation;
+        setRotation(newRotation);
+        
+        // Lock scroll until one full rotation
+        if (newRotation < 360 && !hasCompletedRotation) {
+          e.preventDefault();
+          document.body.style.overflow = 'hidden';
+        } else {
+          if (!hasCompletedRotation) {
+            setHasCompletedRotation(true);
+          }
+          document.body.style.overflow = '';
+        }
       }
     };
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: false });
     return () => {
       observer.disconnect();
       window.removeEventListener("scroll", handleScroll);
+      document.body.style.overflow = '';
     };
-  }, []);
+  }, [hasCompletedRotation]);
 
   return (
     <section 
