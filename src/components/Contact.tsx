@@ -41,7 +41,7 @@ const Contact = () => {
           <div className={`flex flex-col items-center gap-6 transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`} style={{
           transitionDelay: "400ms"
         }}>
-            <a href="mailto:your.email@example.com" className="group flex items-center gap-3 text-xl hover:text-primary transition-colors">
+            <a id="contact-email" href="mailto:your.email@example.com" className="group flex items-center gap-3 text-xl hover:text-primary transition-colors">
               <Mail className="w-5 h-5" />
               <span className="font-body">shreyassingh26@gmail.com</span>
             </a>

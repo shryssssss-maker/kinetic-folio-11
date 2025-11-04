@@ -94,15 +94,95 @@ All colors MUST be HSL.
     --sidebar-ring: 262 83% 58%;
   }
 
+  [data-theme="theme3"] {
+    --background: 30 25% 12%;
+    --foreground: 45 85% 92%;
+    
+    --card: 30 20% 16%;
+    --card-foreground: 45 85% 92%;
+    
+    --popover: 30 25% 14%;
+    --popover-foreground: 45 85% 92%;
+    
+    --primary: 25 95% 65%;
+    --primary-foreground: 30 25% 12%;
+    
+    --secondary: 30 20% 20%;
+    --secondary-foreground: 45 85% 92%;
+    
+    --muted: 30 15% 28%;
+    --muted-foreground: 45 60% 70%;
+    
+    --accent: 15 95% 70%;
+    --accent-foreground: 30 25% 12%;
+    
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 45 85% 98%;
+    
+    --border: 30 20% 24%;
+    --input: 30 20% 20%;
+    --ring: 25 95% 65%;
+    
+    --sidebar-background: 30 20% 16%;
+    --sidebar-foreground: 45 85% 92%;
+    --sidebar-primary: 25 95% 65%;
+    --sidebar-primary-foreground: 30 25% 12%;
+    --sidebar-accent: 30 20% 20%;
+    --sidebar-accent-foreground: 45 85% 92%;
+    --sidebar-border: 30 20% 24%;
+    --sidebar-ring: 25 95% 65%;
+  }
+
+  [data-theme="theme4"] {
+    --background: 240 40% 8%;
+    --foreground: 195 80% 88%;
+    
+    --card: 240 35% 12%;
+    --card-foreground: 195 80% 88%;
+    
+    --popover: 240 40% 10%;
+    --popover-foreground: 195 80% 88%;
+    
+    --primary: 195 100% 60%;
+    --primary-foreground: 240 40% 8%;
+    
+    --secondary: 240 35% 16%;
+    --secondary-foreground: 195 80% 88%;
+    
+    --muted: 240 30% 24%;
+    --muted-foreground: 195 50% 65%;
+    
+    --accent: 270 85% 65%;
+    --accent-foreground: 240 40% 8%;
+    
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 195 80% 98%;
+    
+    --border: 240 35% 20%;
+    --input: 240 35% 16%;
+    --ring: 195 100% 60%;
+    
+    --sidebar-background: 240 35% 12%;
+    --sidebar-foreground: 195 80% 88%;
+    --sidebar-primary: 195 100% 60%;
+    --sidebar-primary-foreground: 240 40% 8%;
+    --sidebar-accent: 240 35% 16%;
+    --sidebar-accent-foreground: 195 80% 88%;
+    --sidebar-border: 240 35% 20%;
+    --sidebar-ring: 195 100% 60%;
+  }
+
 }
 
 @layer base {
   * {
     @apply border-border;
+    transition: background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease;
   }
 
   body {
     @apply bg-background text-foreground font-body antialiased;
+    transition: background-color 0.4s ease, color 0.4s ease;
   }
   
   h1, h2, h3, h4, h5, h6 {
@@ -111,6 +191,23 @@ All colors MUST be HSL.
   
   html {
     scroll-behavior: smooth;
+  }
+
+  /* Theme transition fade animation */
+  body.theme-transitioning {
+    animation: themeFade 0.4s ease-in-out;
+  }
+
+  @keyframes themeFade {
+    0% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.7;
+    }
+    100% {
+      opacity: 1;
+    }
   }
 }
 

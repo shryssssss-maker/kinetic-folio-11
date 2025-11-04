@@ -10,7 +10,7 @@ const projects = [
     description: "An AI-powered system designed to predict and prevent student dropouts using machine learning algorithms and data analysis.",
     fullDescription: "This project was developed for the Smart India Hackathon (SIH). It uses machine learning models to analyze various student data points including attendance, academic performance, socio-economic factors, and behavioral patterns to predict dropout risk. The system provides early warnings to educators and suggests personalized intervention strategies to help at-risk students stay in school.",
     tech: ["Python", "Machine Learning", "TensorFlow", "React"],
-    image: "/placeholder.svg",
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTRjSAQq8WUJVgYjybQDT9l0oIyxBWKHSEn8w&s",
   },
   {
     id: 2,
@@ -18,7 +18,7 @@ const projects = [
     description: "A decentralized application deployment platform built on blockchain technology for seamless smart contract integration.",
     fullDescription: "Hela is a comprehensive DApp deployment platform that simplifies the process of launching decentralized applications. It provides developers with tools for smart contract deployment, blockchain integration, and distributed storage solutions. The platform supports multiple blockchain networks and offers intuitive interfaces for managing decentralized infrastructure.",
     tech: ["Blockchain", "Smart Contracts", "Web3.js", "React"],
-    image: "/placeholder.svg",
+    image: "https://helalabs.com/wp-content/uploads/2023/07/previewLink.png",
   },
 ];
 
@@ -79,14 +79,16 @@ const Projects = () => {
               }`}
               style={{ transitionDelay: `${400 + index * 150}ms` }}
             >
-              {/* Image placeholder */}
-              <div className="aspect-video bg-muted relative overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-accent/20 group-hover:scale-110 transition-transform duration-700" />
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <span className="text-6xl font-display text-foreground/10 group-hover:text-foreground/20 transition-colors">
-                    {project.id}
-                  </span>
-                </div>
+              {/* Project Image */}
+              <div className="aspect-video bg-muted relative overflow-hidden rounded-t-lg">
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                  loading="lazy"
+                />
+                {/* Subtle overlay on hover */}
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/0 to-accent/0 group-hover:from-primary/10 group-hover:to-accent/10 transition-all duration-700" />
               </div>
 
               {/* Content */}
@@ -124,12 +126,12 @@ const Projects = () => {
             </DialogHeader>
             <div className="space-y-6">
               <div className="aspect-video bg-muted relative overflow-hidden rounded-lg">
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-accent/20" />
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <span className="text-8xl font-display text-foreground/10">
-                    {selectedProject?.id}
-                  </span>
-                </div>
+                <img
+                  src={selectedProject?.image}
+                  alt={selectedProject?.title}
+                  className="w-full h-full object-cover"
+                  loading="lazy"
+                />
               </div>
               
               <p className="text-foreground/80 leading-relaxed text-lg">

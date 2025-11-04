@@ -26,7 +26,7 @@ const Hero = ({
           <button onClick={onThemeToggle} className={`text-sm tracking-wider uppercase hover:text-primary transition-colors ${isVisible ? "opacity-100" : "opacity-0"}`} style={{
           transitionDelay: "200ms"
         }}>
-            Try Me
+            Bored?
           </button>
           <Button variant="ghost" size="sm" onClick={onMenuClick} className={`text-sm tracking-wider uppercase hover:text-primary transition-all ${isVisible ? "opacity-100" : "opacity-0"}`} style={{
           transitionDelay: "400ms"

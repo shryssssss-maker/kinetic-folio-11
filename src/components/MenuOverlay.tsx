@@ -15,9 +15,9 @@ const menuItems = [
 ];
 
 const contactLinks = [
-  { label: "Email", href: "mailto:your.email@example.com" },
-  { label: "LinkedIn", href: "https://linkedin.com" },
-  { label: "Github", href: "https://github.com" },
+  { label: "Email", href: "#contact-email" },
+  { label: "LinkedIn", href: "https://www.linkedin.com/in/shreyas-singh-bbbb20384/" },
+  { label: "Github", href: "https://github.com/shryssssss-maker" },
   { label: "Twitter", href: "https://twitter.com" },
 ];
 
