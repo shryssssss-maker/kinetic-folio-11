@@ -19,7 +19,6 @@ const skills = [
 const Skills = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [rotation, setRotation] = useState(0);
-  const [hasCompletedRotation, setHasCompletedRotation] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
   const scrollRef = useRef(0);
 
@@ -39,7 +38,7 @@ const Skills = () => {
       observer.observe(sectionRef.current);
     }
 
-    const handleScroll = (e: Event) => {
+    const handleScroll = () => {
       if (!sectionRef.current) return;
       
       const rect = sectionRef.current.getBoundingClientRect();
@@ -47,35 +46,20 @@ const Skills = () => {
       const sectionHeight = rect.height;
       const windowHeight = window.innerHeight;
       
-      // Check if we're in the skills section
-      const inSection = sectionTop < windowHeight && sectionTop > -sectionHeight;
-      
-      if (inSection) {
+      // Calculate rotation based on scroll position within section
+      if (sectionTop < windowHeight && sectionTop > -sectionHeight) {
         const scrollProgress = (windowHeight - sectionTop) / (windowHeight + sectionHeight);
-        const newRotation = scrollProgress * 360;
-        scrollRef.current = newRotation;
-        setRotation(newRotation);
-        
-        // Lock scroll until one full rotation
-        if (newRotation < 360 && !hasCompletedRotation) {
-          e.preventDefault();
-          document.body.style.overflow = 'hidden';
-        } else {
-          if (!hasCompletedRotation) {
-            setHasCompletedRotation(true);
-          }
-          document.body.style.overflow = '';
-        }
+        scrollRef.current = scrollProgress * 360;
+        setRotation(scrollRef.current);
       }
     };
 
-    window.addEventListener("scroll", handleScroll, { passive: false });
+    window.addEventListener("scroll", handleScroll);
     return () => {
       observer.disconnect();
       window.removeEventListener("scroll", handleScroll);
-      document.body.style.overflow = '';
     };
-  }, [hasCompletedRotation]);
+  }, []);
 
   return (
     <section 
