@@ -18,7 +18,7 @@ const contactLinks = [
   { label: "Email", href: "#contact-email" },
   { label: "LinkedIn", href: "https://www.linkedin.com/in/shreyas-singh-bbbb20384/" },
   { label: "Github", href: "https://github.com/shryssssss-maker" },
-  { label: "Twitter", href: "https://twitter.com" },
+  { label: "Twitter", href: "https://x.com/shrysss3" },
 ];
 
 const MenuOverlay = ({ isOpen, onClose }: MenuOverlayProps) => {
