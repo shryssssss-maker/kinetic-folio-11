@@ -10,7 +10,7 @@ const projects = [
     description: "An AI-powered system designed to predict and prevent student dropouts using machine learning algorithms and data analysis.",
     fullDescription: "This project was developed for the Smart India Hackathon (SIH). It uses machine learning models to analyze various student data points including attendance, academic performance, socio-economic factors, and behavioral patterns to predict dropout risk. The system provides early warnings to educators and suggests personalized intervention strategies to help at-risk students stay in school.",
     tech: ["Python", "Machine Learning", "TensorFlow", "React"],
-    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTRjSAQq8WUJVgYjybQDT9l0oIyxBWKHSEn8w&s",
+    image: "https://images.lumacdn.com/cdn-cgi/image/format=auto,fit=cover,dpr=2,anim=false,background=white,quality=75,width=500,height=500/event-covers/ic/e3857230-b3bf-4c9d-a551-88999c6ca6d1.png",
   },
   {
     id: 2,

@@ -27,7 +27,7 @@ const skills = [{
   name: "Figma",
   level: "Beginner"
 }, {
-  name: "Shreyas",
+  name: "Lovable",
   level: "Intermediate"
 }, {
   name: "Cursor",
