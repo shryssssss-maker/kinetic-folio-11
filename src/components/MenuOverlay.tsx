@@ -1,5 +1,6 @@
 import { X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import GlowText from "@/components/GlowText";
 
 interface MenuOverlayProps {
   isOpen: boolean;
@@ -43,7 +44,9 @@ const MenuOverlay = ({ isOpen, onClose }: MenuOverlayProps) => {
       <div className="h-full flex flex-col">
         {/* Header */}
         <div className="flex items-center justify-between p-8">
-          <div className="text-2xl font-display text-accent-foreground text-glow-hover">Portfolio</div>
+          <div className="text-2xl font-display text-accent-foreground">
+            <GlowText text="Portfolio" glowType="accent" />
+          </div>
           <Button
             variant="ghost"
             size="icon"
@@ -63,12 +66,12 @@ const MenuOverlay = ({ isOpen, onClose }: MenuOverlayProps) => {
                 <button
                   key={item.label}
                   onClick={() => handleNavigate(item.href)}
-                  className={`block text-left text-4xl md:text-5xl font-display text-accent-foreground hover:opacity-70 transition-all duration-500 text-glow-hover-accent ${
+                  className={`block text-left text-4xl md:text-5xl font-display text-accent-foreground hover:opacity-70 transition-all duration-500 ${
                     isOpen ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-8"
                   }`}
                   style={{ transitionDelay: `${100 + index * 100}ms` }}
                 >
-                  {item.label}
+                  <GlowText text={item.label} glowType="accent" />
                 </button>
               ))}
             </nav>
@@ -81,15 +84,15 @@ const MenuOverlay = ({ isOpen, onClose }: MenuOverlayProps) => {
               style={{ transitionDelay: "600ms" }}
             >
               <h3 className="text-sm uppercase tracking-wider text-accent-foreground/60 mb-8">
-                Contact
+                <GlowText text="Contact" glowType="subtle" />
               </h3>
               {contactLinks.map((link) => (
                 <button
                   key={link.label}
                   onClick={() => handleNavigate(link.href)}
-                  className="block text-left text-lg text-accent-foreground hover:opacity-70 transition-opacity uppercase tracking-wider text-glow-hover"
+                  className="block text-left text-lg text-accent-foreground hover:opacity-70 transition-opacity uppercase tracking-wider"
                 >
-                  {link.label}
+                  <GlowText text={link.label} glowType="accent" />
                 </button>
               ))}
             </div>

@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { Mail, Linkedin, Github, Twitter } from "lucide-react";
+import GlowText from "@/components/GlowText";
 const Contact = () => {
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
@@ -27,23 +28,25 @@ const Contact = () => {
   return <section ref={sectionRef} className="min-h-screen flex items-center justify-center px-6 md:px-12 py-24">
       <div className="max-w-5xl w-full">
         <div className="text-center space-y-12">
-          <h2 className={`text-5xl md:text-7xl font-display font-light transition-all duration-1000 text-glow-hover-accent ${isVisible ? "opacity-100 scale-100" : "opacity-0 scale-95"}`}>
-            Let's Connect
+          <h2 className={`text-5xl md:text-7xl font-display font-light transition-all duration-1000 ${isVisible ? "opacity-100 scale-100" : "opacity-0 scale-95"}`}>
+            <GlowText text="Let's Connect" glowType="accent" />
           </h2>
 
           <p className={`text-lg md:text-xl text-foreground/70 max-w-2xl mx-auto transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`} style={{
           transitionDelay: "200ms"
         }}>
-            I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision.
+            <GlowText text="I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision." glowType="subtle" />
           </p>
 
           {/* Contact links */}
           <div className={`flex flex-col items-center gap-6 transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`} style={{
           transitionDelay: "400ms"
         }}>
-            <a id="contact-email" href="mailto:your.email@example.com" className="group flex items-center gap-3 text-xl hover:text-primary transition-colors text-glow-hover">
+            <a id="contact-email" href="mailto:your.email@example.com" className="group flex items-center gap-3 text-xl hover:text-primary transition-colors">
               <Mail className="w-5 h-5" />
-              <span className="font-body">shreyassingh26@gmail.com</span>
+              <span className="font-body">
+                <GlowText text="shreyassingh26@gmail.com" glowType="primary" />
+              </span>
             </a>
 
             <div className="flex items-center gap-6 pt-4">
@@ -63,10 +66,12 @@ const Contact = () => {
           <div className={`pt-16 transition-all duration-1000 ${isVisible ? "opacity-100" : "opacity-0"}`} style={{
           transitionDelay: "600ms"
         }}>
-            <button onClick={scrollToTop} className="text-sm uppercase tracking-wider text-muted-foreground hover:text-foreground transition-colors text-glow-hover-subtle mb-8">
-              Back to Top
+            <button onClick={scrollToTop} className="text-sm uppercase tracking-wider text-muted-foreground hover:text-foreground transition-colors mb-8">
+              <GlowText text="Back to Top" glowType="subtle" />
             </button>
-            <p className="text-sm text-muted-foreground">© 2025 All rights reserved</p>
+            <p className="text-sm text-muted-foreground">
+              <GlowText text="© 2025 All rights reserved" glowType="subtle" />
+            </p>
           </div>
         </div>
       </div>
