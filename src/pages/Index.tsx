@@ -184,7 +184,7 @@ const Index = () => {
         <Skills />
       </div>
       <div id="projects">
-        <Projects className="rounded-lg" />
+        <Projects />
       </div>
       <div id="contact">
         <Contact />

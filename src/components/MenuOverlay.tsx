@@ -43,7 +43,7 @@ const MenuOverlay = ({ isOpen, onClose }: MenuOverlayProps) => {
       <div className="h-full flex flex-col">
         {/* Header */}
         <div className="flex items-center justify-between p-8">
-          <div className="text-2xl font-display text-accent-foreground">Portfolio</div>
+          <div className="text-2xl font-display text-accent-foreground text-glow-hover">Portfolio</div>
           <Button
             variant="ghost"
             size="icon"
@@ -63,7 +63,7 @@ const MenuOverlay = ({ isOpen, onClose }: MenuOverlayProps) => {
                 <button
                   key={item.label}
                   onClick={() => handleNavigate(item.href)}
-                  className={`block text-left text-4xl md:text-5xl font-display text-accent-foreground hover:opacity-70 transition-all duration-500 ${
+                  className={`block text-left text-4xl md:text-5xl font-display text-accent-foreground hover:opacity-70 transition-all duration-500 text-glow-hover-accent ${
                     isOpen ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-8"
                   }`}
                   style={{ transitionDelay: `${100 + index * 100}ms` }}
@@ -87,7 +87,7 @@ const MenuOverlay = ({ isOpen, onClose }: MenuOverlayProps) => {
                 <button
                   key={link.label}
                   onClick={() => handleNavigate(link.href)}
-                  className="block text-left text-lg text-accent-foreground hover:opacity-70 transition-opacity uppercase tracking-wider"
+                  className="block text-left text-lg text-accent-foreground hover:opacity-70 transition-opacity uppercase tracking-wider text-glow-hover"
                 >
                   {link.label}
                 </button>

@@ -27,7 +27,7 @@ const Contact = () => {
   return <section ref={sectionRef} className="min-h-screen flex items-center justify-center px-6 md:px-12 py-24">
       <div className="max-w-5xl w-full">
         <div className="text-center space-y-12">
-          <h2 className={`text-5xl md:text-7xl font-display font-light transition-all duration-1000 ${isVisible ? "opacity-100 scale-100" : "opacity-0 scale-95"}`}>
+          <h2 className={`text-5xl md:text-7xl font-display font-light transition-all duration-1000 text-glow-hover-accent ${isVisible ? "opacity-100 scale-100" : "opacity-0 scale-95"}`}>
             Let's Connect
           </h2>
 
@@ -41,7 +41,7 @@ const Contact = () => {
           <div className={`flex flex-col items-center gap-6 transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`} style={{
           transitionDelay: "400ms"
         }}>
-            <a id="contact-email" href="mailto:your.email@example.com" className="group flex items-center gap-3 text-xl hover:text-primary transition-colors">
+            <a id="contact-email" href="mailto:your.email@example.com" className="group flex items-center gap-3 text-xl hover:text-primary transition-colors text-glow-hover">
               <Mail className="w-5 h-5" />
               <span className="font-body">shreyassingh26@gmail.com</span>
             </a>
@@ -63,7 +63,7 @@ const Contact = () => {
           <div className={`pt-16 transition-all duration-1000 ${isVisible ? "opacity-100" : "opacity-0"}`} style={{
           transitionDelay: "600ms"
         }}>
-            <button onClick={scrollToTop} className="text-sm uppercase tracking-wider text-muted-foreground hover:text-foreground transition-colors mb-8">
+            <button onClick={scrollToTop} className="text-sm uppercase tracking-wider text-muted-foreground hover:text-foreground transition-colors text-glow-hover-subtle mb-8">
               Back to Top
             </button>
             <p className="text-sm text-muted-foreground">© 2025 All rights reserved</p>

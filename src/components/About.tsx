@@ -22,7 +22,7 @@ const About = () => {
         <div className="grid md:grid-cols-2 gap-16 items-center">
           {/* Left side - Title */}
           <div>
-            <h2 className={`text-6xl md:text-8xl font-display font-light transition-all duration-1000 ${isVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-12"}`}>
+            <h2 className={`text-6xl md:text-8xl font-display font-light transition-all duration-1000 text-glow-hover-accent ${isVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-12"}`}>
               About Me
             </h2>
           </div>
