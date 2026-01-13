@@ -11,4 +11,5 @@ This is my personal portfolio website — a 3D interactive showcase of my work, 
 👉 [https://kinetic-folio-11.vercel.app](https://kinetic-folio-11.vercel.app)
 
 ---
-Designed and developed by **Shreyas Singh** ✨
+
+
